@@ -5,9 +5,12 @@ RUN apt-get -y update && apt-get install -y \
 sudo \
 wget \
 vim \
-git
+git \
+tmux \
+zip \
+unzip
 
-#install anaconda3
+
 WORKDIR /opt
 
 # download anaconda package and install anaconda
@@ -25,7 +28,9 @@ RUN mkdir /work
 COPY ./requirements.txt /work
 
 RUN pip install --upgrade pip && \
-    pip install -r /work/requirements.txt
+    pip install -r /work/requirements.txt && \
+    rm /work/requirements.txt
 
+WORKDIR /work
 # CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]
 
