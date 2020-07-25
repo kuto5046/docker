@@ -4,7 +4,13 @@ docker関連ファイルを格納するレポジトリ
 ここにあるdockerfileをベースに、プロジェクトごとに適宜修正を加える
 
 config.shはclone後にフォルダを整理するスクリプト  
-clone先のプロジェクトのrootディレクトリで以下を実行
+clone先のディレクトリ下で以下を実行
+
+実行権限を付与
 ```
-./docker/config.sh
+chmod +x ./docker/config.sh  
+```
+scriptの実行
+```
+./docker/config.sh <取得するフォルダ名>  # baseフォルダの中身が欲しい場合はbaseを引数として実行　
 ```
