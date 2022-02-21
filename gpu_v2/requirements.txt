@@ -10,3 +10,6 @@ lightgbm
 xgboost 
 catboost
 pytorch-lightning
+
+matplotlib-venn
+sweetviz
