@@ -1,6 +1,8 @@
 FROM nvcr.io/nvidia/pytorch:22.01-py3
 
-# 
+# 時間設定
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
 RUN apt-get -y update && apt-get install -y \
     sudo \
     zip \

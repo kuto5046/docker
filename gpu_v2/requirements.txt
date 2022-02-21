@@ -6,3 +6,7 @@ seaborn
 kaggle
 wandb
 jupyterlab
+lightgbm
+xgboost 
+catboost
+pytorch-lightning
