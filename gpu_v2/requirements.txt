@@ -1,0 +1,8 @@
+# visualize
+plotly
+seaborn
+
+# kaggle
+kaggle
+wandb
+jupyterlab
