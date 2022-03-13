@@ -8,7 +8,7 @@ docker関連ファイルを格納するレポジトリ
 
 |  フォルダ  |  特徴  |
 | ---- | ---- |
-|  gpu  |  ubuntu imageで1から実装。condaを使用していない  |
+|  gpu_v1  |  ubuntu imageで一から実装。condaを使用していない  |
 |  gpu_v2  |  nvidiaのpytorch用imageを使用。cuda系は基本使える |
 
 

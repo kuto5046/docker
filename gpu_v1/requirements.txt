@@ -1,0 +1,28 @@
+# base
+seaborn
+numpy
+pandas
+matplotlib
+scipy
+ipdb
+matplotlib-venn
+
+# DL
+pytorch-lightning
+
+# ML
+kaggle
+optuna
+wandb
+scikit-learn
+xgboost
+lightgbm
+catboost
+hydra-core
+
+# other
+pathlib
+typing
+jupyterlab
+ipywidgets
+logzero
