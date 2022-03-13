@@ -9,6 +9,10 @@ matplotlib-venn
 
 # DL
 pytorch-lightning
+transformers
+tensorflow
+tensorflow_text
+tensorflow_hub
 
 # ML
 kaggle
@@ -19,10 +23,11 @@ xgboost
 lightgbm
 catboost
 hydra-core
+jupyter
+jupyterlab
 
 # other
 pathlib
 typing
-jupyterlab
 ipywidgets
 logzero
