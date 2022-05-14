@@ -10,7 +10,9 @@ RUN apt-get -y update && apt-get install -y \
     tmux \
     zsh \
     xonsh \
-    neovim
+    neovim \
+    # for opencv
+    libgl1-mesa-dev  
 
 # 本当はハードコーディングではなくローカルのidと合わせた方が良い
 # https://qiita.com/yohm/items/047b2e68d008ebb0f001
@@ -19,6 +21,7 @@ ARG DOCKER_USER="user"
 ARG DOCKER_PASSWORD="kuzira"
 RUN useradd -m --uid ${DOCKER_UID} --groups sudo ${DOCKER_USER} \
   && echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
+RUN echo ${DOCKER_PASSWORD} | sudo -S chown -R ${DOCKER_USER} /opt/conda/
 USER ${DOCKER_USER}
 
 ENV HOME=/home/user
@@ -29,6 +32,11 @@ COPY ./requirements.txt ./
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt && \
     rm requirements.txt
+
+# 時間がかかるので不要な場合はコメントアウトしてもOK
+RUN conda install --yes -c conda-forge google-cloud-bigquery \
+  google-cloud-bigquery-storage \
+  pandas-gbq
 
 # install dotfiles
 RUN git clone https://github.com/kuto5046/dotfiles.git

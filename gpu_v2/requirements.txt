@@ -13,3 +13,5 @@ pytorch-lightning
 hydra-core
 matplotlib-venn
 sweetviz
+category_encoders
+logzero
