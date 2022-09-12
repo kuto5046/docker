@@ -34,9 +34,9 @@ RUN pip install --upgrade pip && \
     rm requirements.txt
 
 # 時間がかかるので不要な場合はコメントアウトしてもOK
-RUN conda install --yes -c conda-forge google-cloud-bigquery \
-  google-cloud-bigquery-storage \
-  pandas-gbq
+# RUN conda install --yes -c conda-forge google-cloud-bigquery \
+#   google-cloud-bigquery-storage \
+#   pandas-gbq
 
 # install dotfiles
 RUN git clone https://github.com/kuto5046/dotfiles.git
