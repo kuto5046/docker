@@ -1,17 +1,36 @@
 # visualize
 plotly
 seaborn
+ipywidgets
+pandas_profiling
+matplotlib-venn
+sweetviz
+logzero
 
 # kaggle
 kaggle
+
+# ml
 wandb
 jupyterlab
+hydra-core
 lightgbm
 xgboost 
 catboost
 pytorch-lightning
-hydra-core
-matplotlib-venn
-sweetviz
+
+# feature
 category_encoders
-logzero
+bhtsne
+umap
+
+# nlp
+gensim
+fasttext
+transformers
+tensorflow
+tensorflow_text
+tensorflow_hub
+
+# other
+python-dotenv
