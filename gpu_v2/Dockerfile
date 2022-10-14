@@ -45,3 +45,10 @@ RUN bash ./dotfiles/.bin/install.sh
 # make workdir
 RUN mkdir ${HOME}/work/
 WORKDIR ${HOME}/work/
+
+
+ENV PYTHONPATH ${HOME}/work:$PYTHONPATH
+
+# shellをxonshにする
+RUN xonsh
+ENV SHELL /usr/bin/xonsh
