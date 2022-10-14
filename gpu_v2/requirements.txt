@@ -6,6 +6,7 @@ pandas_profiling==3.3.0
 matplotlib-venn==0.11.7
 sweetviz==2.1.4
 logzero==1.7.0
+shap==0.41.0
 
 # kaggle
 kaggle==1.5.12
