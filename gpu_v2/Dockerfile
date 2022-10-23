@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:22.01-py3
+FROM nvcr.io/nvidia/pytorch:22.03-py3
 
 # 時間設定
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
@@ -37,6 +37,12 @@ RUN pip install --upgrade pip && \
 # RUN conda install --yes -c conda-forge google-cloud-bigquery \
 #   google-cloud-bigquery-storage \
 #   pandas-gbq
+
+# cpu-verとgpu-verが共存しておりtorch_geometricが使えないためreinstallする
+RUN pip uninstall -y torch torchvision torchtext
+RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+RUN pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.12.0+cu116.html
+
 
 # install dotfiles
 RUN git clone https://github.com/kuto5046/dotfiles.git
