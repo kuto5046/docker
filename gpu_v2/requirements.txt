@@ -26,6 +26,9 @@ category_encoders==2.5.0
 bhtsne==0.1.9
 umap==0.1.1
 
+# cv
+albumentations==1.3.0
+
 # nlp
 gensim==4.2.0
 fasttext==0.9.2
