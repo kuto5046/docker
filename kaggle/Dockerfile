@@ -15,18 +15,7 @@ RUN apt-get -y update && apt-get install -y \
 
 # neovim v0.81
 RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-# RUN apt autoremove
 RUN apt install ./nvim-linux64.deb
-
-# 本当はハードコーディングではなくローカルのidと合わせた方が良い
-# https://qiita.com/yohm/items/047b2e68d008ebb0f001
-ARG DOCKER_UID=1000
-ARG DOCKER_USER="user"
-ARG DOCKER_PASSWORD="kuzira"
-RUN useradd -m --uid ${DOCKER_UID} --groups sudo ${DOCKER_USER} \
-  && echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
-RUN echo ${DOCKER_PASSWORD} | sudo -S chown -R ${DOCKER_USER} /opt/conda/
-USER ${DOCKER_USER}
 
 ENV HOME=/home/user
 ENV PATH ${HOME}/.local/bin:$PATH
