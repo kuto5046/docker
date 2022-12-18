@@ -13,7 +13,6 @@ kaggle==1.5.12
 
 # ml
 wandb==0.13.3
-jupyterlab==2.3.2
 hydra-core==1.2.0
 lightgbm==3.3.2
 xgboost==1.5.0
@@ -37,6 +36,11 @@ transformers==4.22.0
 tensorflow==2.10.0
 tensorflow_text==2.10.0
 tensorflow_hub==0.12.0
+
+# jupyter lab
+jupyterlab==3.5.1
+jupyterlab-lsp
+python-lsp-server[all]
 
 # other
 python-dotenv==0.21.0
