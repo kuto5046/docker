@@ -10,7 +10,6 @@ RUN apt-get -y update && apt-get install -y \
     tmux \
     zsh \
     xonsh \
-    neovim \
     # for opencv
     libgl1-mesa-dev \
     nodejs \
@@ -21,7 +20,12 @@ RUN apt-get -y update && apt-get install -y \
 RUN npm -y install n -g && \
     n stable && \
     apt purge -y nodejs npm 
-   
+
+# neovim v0.81
+RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+RUN apt autoremove
+RUN apt install ./nvim-linux64.deb
+
 # 本当はハードコーディングではなくローカルのidと合わせた方が良い
 # https://qiita.com/yohm/items/047b2e68d008ebb0f001
 ARG DOCKER_UID=1000
