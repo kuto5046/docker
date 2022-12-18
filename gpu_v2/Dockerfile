@@ -12,8 +12,16 @@ RUN apt-get -y update && apt-get install -y \
     xonsh \
     neovim \
     # for opencv
-    libgl1-mesa-dev  
-
+    libgl1-mesa-dev \
+    nodejs \
+    npm \
+    curl 
+    
+# node jsを最新版にする
+RUN npm -y install n -g && \
+    n stable && \
+    apt purge -y nodejs npm 
+   
 # 本当はハードコーディングではなくローカルのidと合わせた方が良い
 # https://qiita.com/yohm/items/047b2e68d008ebb0f001
 ARG DOCKER_UID=1000
@@ -39,9 +47,9 @@ RUN pip install --upgrade pip && \
 #   pandas-gbq
 
 # cpu-verとgpu-verが共存しておりtorch_geometricが使えないためreinstallする
-RUN pip uninstall -y torch torchvision torchtext
-RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
-RUN pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.12.0+cu116.html
+# RUN pip uninstall -y torch torchvision torchtext
+# RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+# RUN pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.12.0+cu116.html
 
 
 # install dotfiles
