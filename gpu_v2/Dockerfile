@@ -23,7 +23,7 @@ RUN npm -y install n -g && \
 
 # neovim v0.81
 RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-RUN apt autoremove
+# RUN apt autoremove
 RUN apt install ./nvim-linux64.deb
 
 # 本当はハードコーディングではなくローカルのidと合わせた方が良い
