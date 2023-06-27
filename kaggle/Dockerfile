@@ -1,4 +1,4 @@
-FROM gcr.io/kaggle-gpu-images/python:v122
+FROM gcr.io/kaggle-gpu-images/python:v134
 
 # 時間設定
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
@@ -8,24 +8,28 @@ RUN apt-get -y update && apt-get install -y \
     zsh \
     xonsh
 
-# neovim v0.81
-RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-RUN apt install ./nvim-linux64.deb
+# neovim v0.9.1
+RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+RUN tar xzvf nvim-linux64.tar.gz
+RUN mv nvim-linux64/bin/nvim /usr/local/bin
 
 # 既存のユーザを削除
-RUN sudo userdel -r jupyter  
+# RUN sudo userdel -r jupyter  
 
 # 本当はハードコーディングではなくローカルのidと合わせた方が良い
 # https://qiita.com/yohm/items/047b2e68d008ebb0f001
 ARG DOCKER_UID=1000
 ARG DOCKER_USER="user"
 ARG DOCKER_PASSWORD="kuzira"
-RUN sudo useradd -m --uid ${DOCKER_UID} --groups sudo ${DOCKER_USER} \
-  && echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
-RUN echo ${DOCKER_PASSWORD} | sudo -S chown -R ${DOCKER_USER} /opt/conda/
+
+# 既存のjupyterユーザをuserという名前に変更(ホームディレクトリも変更)
+RUN sudo usermod -l ${DOCKER_USER} -d /home/${DOCKER_USER} -m jupyter
+
+RUN echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
+# RUN echo ${DOCKER_PASSWORD} | sudo -S chown -R ${DOCKER_USER} /opt/conda/
 USER ${DOCKER_USER}
 
-ENV HOME=/home/user
+ENV HOME=/home/${DOCKER_USER}
 ENV PATH ${HOME}/.local/bin:$PATH
 ENV PYTHONPATH ${HOME}/work:$PYTHONPATH
 # shellをzshにする
