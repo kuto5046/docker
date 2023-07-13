@@ -9,9 +9,13 @@ RUN apt-get -y update && apt-get install -y \
     xonsh
 
 # neovim v0.9.1
-RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-RUN tar xzvf nvim-linux64.tar.gz
-RUN mv nvim-linux64/bin/nvim /usr/local/bin
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+
 
 # 既存のユーザを削除
 # RUN sudo userdel -r jupyter  
