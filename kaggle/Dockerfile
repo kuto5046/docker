@@ -9,12 +9,12 @@ RUN apt-get -y update && apt-get install -y \
     xonsh
 
 # neovim v0.9.1
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-./squashfs-root/AppRun --version
-sudo mv squashfs-root /
-sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+RUN chmod u+x nvim.appimage
+RUN ./nvim.appimage --appimage-extract
+# RUN ./squashfs-root/AppRun --version
+# RUN sudo mv squashfs-root /
+RUN sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 
 # 既存のユーザを削除
