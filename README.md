@@ -8,9 +8,9 @@ docker関連ファイルを格納するレポジトリ
 
 |  フォルダ  |  特徴  |
 | ---- | ---- |
-|  gpu_v1  |  ubuntu imageで一から実装。condaを使用していない  |
+|  gpu_v1  |  軽量なubuntu imageとpoetryで構成。  |
 |  gpu_v2  |  nvidiaのpytorch用imageを使用。cuda系は基本使える |
-
+|  kaggle  |  kaggle image kaggle環境と揃えたい時に使用する  |
 
 ## Setup
 
