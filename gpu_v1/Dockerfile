@@ -27,11 +27,25 @@ RUN apt-get -y update && apt-get install -y \
     libgl1-mesa-dev \
     libsndfile1 \
     libffi-dev \
+    libsqlite3-dev \
+    libreadline6-dev \
+    libbz2-dev \
+    libssl-dev \
+    libsqlite3-dev \ 
+    libncursesw5-dev \ 
+    libffi-dev \
+    libdb-dev \
+    libexpat1-dev \ 
+    zlib1g-dev \
+    liblzma-dev \ 
+    libgdbm-dev \
+    libmpdec-dev \
     zsh \
     xonsh \
     nodejs \
     npm \
     curl
+
 
 
 # node js を最新Verにする
