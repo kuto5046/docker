@@ -44,7 +44,7 @@ RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appi
 RUN chmod u+x nvim.appimage
 RUN ./nvim.appimage --appimage-extract
 # RUN ./squashfs-root/AppRun --version
-# RUN sudo mv squashfs-root /
+RUN sudo mv squashfs-root /
 RUN sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 # 本当はハードコーディングではなくローカルのidと合わせた方が良い
