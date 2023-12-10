@@ -4,6 +4,7 @@ services:
   env:
     build: .
     # cuda用のsetting
+    shm_size: '24gb'    
     deploy:
       resources:
         reservations:
